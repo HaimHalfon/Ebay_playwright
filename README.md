@@ -52,9 +52,7 @@ allure serve allure-results
 
 ## Test Data (Data-Driven)
 
-Test inputs are configured in:
-
-- data/test_data.json
+Test inputs are configured in `data/test_data.json`.
 
 You can change values like:
 
