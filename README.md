@@ -64,19 +64,23 @@ You can change values like:
 
 ## Architecture
 
-The project follows the Page Object Model (POM) pattern:
+The project follows the Page Object Model (POM) pattern with an additional flow layer:
 
-- `pages/`
-  Contains page classes (HomePage, ProductPage, CartPage)
+- `pages/`  
+  Contains page classes (HomePage, ProductPage, CartPage).  
   Each class is responsible for a single page and its actions.
 
-- `tests/`
+- `flows/`  
+  Contains business flows that orchestrate multiple page objects  
+  (e.g. search flow, add-to-cart flow, cart validation flow).
+
+- `tests/`  
   Contains test scenarios written with pytest.
 
-- `utils/`
+- `utils/`  
   Shared helpers such as data loading and parsing.
 
-- `data/`
+- `data/`  
   External test data files (JSON).
 
 This structure improves readability, maintainability, and scalability.
