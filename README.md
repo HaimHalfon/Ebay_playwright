@@ -26,42 +26,41 @@ Before running the project, make sure you have:
 
 ---
 
-## Installation
-
-1. Create and activate a virtual environment (recommended)
+## How to Run Locally
 
 ```bash
-python -m venv venv
-venv\Scripts\activate
-```
+# 1) Clone the repository
+git clone https://github.com/HaimHalfon/Ebay_playwright.git
 
-2. Install dependencies
+# 2) Navigate into the project folder
+cd Ebay_playwright
 
-```bash
+# 3) Install requirements
 pip install -r requirements.txt
-```
 
-3. Install Playwright browsers
-
-```bash
+# 4) Install Playwright browsers
 playwright install
+
+# 5) Run tests and generate Allure results
+pytest --alluredir=allure-results
+
+# 6) Open the Allure report
+allure serve allure-results
 ```
 
 ---
 
-## Running Tests
+## Test Data (Data-Driven)
 
-Run tests and generate Allure results:
+Test inputs are configured in:
 
-```bash
-pytest --alluredir=allure-results
-```
+- data/test_data.json
 
-Open the Allure report:
+You can change values like:
 
-```bash
-allure serve allure-results
-```
+- query
+- max_price
+- limit
 
 ---
 
@@ -69,17 +68,17 @@ allure serve allure-results
 
 The project follows the Page Object Model (POM) pattern:
 
-- `pages/`  
-  Contains page classes (HomePage, ProductPage, CartPage)  
+- `pages/`
+  Contains page classes (HomePage, ProductPage, CartPage)
   Each class is responsible for a single page and its actions.
 
-- `tests/`  
+- `tests/`
   Contains test scenarios written with pytest.
 
-- `utils/`  
+- `utils/`
   Shared helpers such as data loading and parsing.
 
-- `data/`  
+- `data/`
   External test data files (JSON).
 
 This structure improves readability, maintainability, and scalability.
@@ -91,7 +90,7 @@ This structure improves readability, maintainability, and scalability.
 - No user login is performed (Guest checkout only).
 - Prices are validated based on the displayed currency on the site.
 - Product availability and prices may change over time.
-- The test assumes standard eBay UI without A/B testing changes.
+- The test assumes standard eBay UI.
 
 ---
 
